@@ -35,12 +35,12 @@ class Order extends \yii\db\ActiveRecord
             [['created_at'], 'safe'],
             [['name', 'address', 'email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 10],
-            ['email', 'EmailValidator'],
-            ['address', 'FilterValidator'],
-            ['phone', 'StringValidator', 'NumberValidator'],
+            [['email'], 'email'],
+            [['address'], 'filter',  'filter'=>'strip_tags'],
+            [['phone'], 'number'],
 
+];
 
-        ];
     }
 
     /**
