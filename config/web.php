@@ -47,6 +47,10 @@ $config = [
             ],
         ],
 
+        'test'=>[
+            'class'=>\app\components\Test::class,
+            'var'=>123
+        ]
     ],
     'params' => $params,
 ];

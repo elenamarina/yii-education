@@ -3,7 +3,11 @@
 namespace app\controllers;
 
 use app\models\Product;
+
+use Codeception\Module\Yii1;
+use Codeception\Module\Yii2;
 use Yii;
+use yii\BaseYii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -18,11 +22,13 @@ class TestController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Product();
-        $model->id = 1;
-        $model->name  = 'First';
-        $model->category  = 'cat';
-        $model->price  = '100';
-        return $this->render('index', ['model'=>$model]);
+            return Yii::$app->test->run();
+
+     //   $model = new Product();
+       // $model->id = 1;
+     //   $model->name  = 'First';
+      //  $model->category  = 'cat';
+     //   $model->price  = '100';
+     //   return $this->render('index', ['model'=>$model]);
     }
 }
