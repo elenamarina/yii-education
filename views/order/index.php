@@ -25,21 +25,23 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            [
+                'content'=>function($model){
+                    return Html::a(strip_tags($model->name), ['order/view', 'id'=>$model->id]);
+                }],
+
             'address',
             'email:email',
             'phone',
             // 'created_at',
 
             ['class' => 'yii\grid\ActionColumn',
-                'template'=>'{create} {update} {delete}',
-                'buttons'=>[
-                    'create'=>function(){
-                        return Html::a('ссылка',['/order/vew','id=>idModel']);
-                    }
-                ]
 
-            ],
-        ],
-    ]); ?>
+                ]
+        ]
+        ]);
+
+
+
+     ?>
 </div>

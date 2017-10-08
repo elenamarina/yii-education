@@ -37,6 +37,7 @@ class OrderController extends Controller
     {
         $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize=3;
 
         return $this->render('index', [
             'searchModel' => $searchModel,
